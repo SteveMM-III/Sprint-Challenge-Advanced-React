@@ -31,7 +31,7 @@ export const useGetData = ( key, initialValue ) => {
       .catch( err => console.error( `Error: ${err}` ) );
 */
 
-    console.log( 'useEffect' );
+    // console.log( 'useEffect' );
 
     return () => { source.cancel(); }
   }, [] ); 
