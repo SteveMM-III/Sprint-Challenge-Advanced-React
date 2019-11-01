@@ -3,6 +3,16 @@ import { render } from '@testing-library/react';
 
 import App from './App';
 
-it('renders without crashing', () => {
+test('renders without crashing', () => {
   render( <App /> );
 });
+
+test( 'contains name', () => {
+  const { findAllByText } = render( <App /> );
+  findAllByText( 'Name:' );
+} );
+
+test( 'contains country', () => {
+  const { findAllByText } = render( <App /> );
+  findAllByText( 'Country:' );
+} );
