@@ -13,16 +13,13 @@ export const useGetData = ( key, initialValue ) => {
 
     const loadData = async () => {
       try {
-        const res = await Axios.get( 'http://localhost:5000/api/players', {
-          cancelToken: source.token
-        } );
+        const res = await Axios
+          .get( 'http://localhost:5000/api/players', { cancelToken: source.token } );
+        
         setValue( res.data );
       } catch ( err ) {
-        if ( Axios.isCancel( err ) ) {
-          // request cancelled
-        } else {
-          console.error( `Error: ${err}` );
-        }
+        if ( Axios.isCancel( err ) ) { /* request cancelled */ }
+        else { console.error( `Error: ${err}` ); }
       }
     };
 
@@ -36,9 +33,7 @@ export const useGetData = ( key, initialValue ) => {
 
     console.log( 'useEffect' );
 
-    return () => {
-      source.cancel();
-    }
+    return () => { source.cancel(); }
   }, [] ); 
   
 
